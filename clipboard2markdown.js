@@ -175,6 +175,9 @@
       setTimeout(function () {
         var html = pastebin.innerHTML;
         var markdown = convert(html);
+
+        markdown = markdown.replace(/\u00a0/g, ' ') // 去掉nbsp
+
         // output.value = markdown;
         insert(output, markdown);
         wrapper.classList.remove('hidden');
